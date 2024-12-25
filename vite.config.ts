@@ -1,27 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/lawfirm/', // Replace 'lawfirm' with your repo name
+  base: '/lawfirm/', // Ensure this matches your repo name
   build: {
-    outDir: 'dist', // Output directory
-    assetsDir: 'assets', // Directory for static assets
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
-      input: './index.html', // Entry point
+      input: './index.html',
       output: {
-        assetFileNames: 'assets/[name]-[hash][extname]', // Hashing for asset files
-        chunkFileNames: 'assets/[name]-[hash].js', // Hashing for chunks
-        entryFileNames: 'assets/[name]-[hash].js', // Hashing for entry files
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       },
     },
-  },
-  optimizeDeps: {
-    exclude: ['lucide-react'], // Exclude unnecessary dependencies
-  },
-  server: {
-    port: 3000, // Local server port
-    open: true, // Automatically open in browser
   },
 });
